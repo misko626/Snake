@@ -134,6 +134,17 @@
 			<a id="btnLeftId" class="btnLeft">
 				<img src="img/btnUp.png" alt="btnLeft">	
 			<a>
+			<audio id="myHam">
+  				
+ 				<source src="sounds/ham.mp3" type="audio/mpeg">
+ 				Your browser does not support the audio element.
+			</audio>
+			<audio id="myOhNo">
+  				
+				<source src="sounds/OhNo.mp3" type="audio/mpeg">
+				Your browser does not support the audio element.
+		   </audio>
+			
 		</div>
 
 		<script>
@@ -203,6 +214,14 @@
 			let foodPosX = 0;
 			let foodPosY = 0;
 
+			//sounds
+			var ham = document.getElementById("myHam");
+			var ohNo = document.getElementById("myOhNo"); 
+
+				function playAudio(sound) { 
+  						sound.play(); 
+				} 
+
 			// loop
 			function gameLoop() {
 				if (gameIsRunning) {
@@ -253,6 +272,7 @@
 				if (snakePosX === foodPosX && snakePosY === foodPosY) {
 					title.textContent = ++score;
 					snakeLength++;
+					playAudio(ham);
 					resetFood();
 				}
 			}
@@ -314,6 +334,7 @@
 			// KEYBOARD restarts game
 			function gameOver() {
 				title.innerHTML = `☠️ <strong> ${score} </strong> ☠️`;
+				playAudio(ohNo);
 				gameIsRunning = false;
 			}
 
