@@ -5,20 +5,69 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>My first snake</title>
         <link rel="shortcut icon" href="img/icon.gif" type="image/x-icon">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet"> 
 		<style>
 			body {
-				background: #ffbf00;
-				text-align: center;
+				background:white;
 				
-			}
-			canvas {
+				padding: 0;
+				margin: 0;
 				
-				margin-top: 0;
-				border: 10px solid #f7347a;
 			}
 
-			h2{
-				font-size: 20px;
+			.content:before,
+			.content:after,
+			.arrowsBoard:before,
+			.nav-bar:before,
+			.nav-bar:after,
+			.arrowsBoard:after {
+				content: " ";
+				display: table;
+			}
+
+			.content:after,
+			.arrowsBoard:after,
+			.nav-bar:after {
+				clear: both;
+			}
+
+			.content,
+			.arrowsBoard,
+			.nav-bar{
+				*zoom: 1;
+			}
+			canvas {
+				border-radius: 8px;
+				margin-top: 0;
+				border: 3px solid #212121;
+				box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 10px rgba(0, 0, 0, 0.19);
+			}
+
+			h2{	
+				position: absolute;
+				font-size: 35px;
+				color: #8BC34A;
+				font-family: 'Yanone Kaffeesatz', sans-serif;
+				left: 50px;
+				top: -15px;
+				
+			}
+
+			h2:hover{
+				color: #F0F4C3;
+			}
+			h2 strong{
+				padding-left: 15px;
+				padding-right: 5px;
+				padding-top: 0;
+				padding-bottom: 0;
+				color: #F0F4C3;
+				font-size: 45px;
+			}
+
+			h2 strong:hover{
+				color: #8BC34A;
 			}
 
 			h1 {
@@ -35,6 +84,34 @@
 				display: inline-block;
 				margin: 0 0.25em;
 			}
+			.nav-bar{
+				position: relative;
+				margin: 0;
+				background-color: #212121;
+				height: 65px;
+				box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
+
+			}
+			.logo img{
+				position: absolute;
+				width: 40px;
+				top: 12px;
+				left: 2%;
+			}
+
+			.menu img{
+				position: absolute;
+				width: 50px;
+				top: 9px;
+				right: 2%;
+			}
+			.content{
+				position: relative;
+				background-color:#cddc39;
+				text-align: center;
+				box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
+			}
+	
 			.arrowsBoard{
 				position: relative;
 				background-color: #fff;
@@ -118,9 +195,20 @@
 	</head>
 
 	<body>
-		<h2>Change direction by Arrows or buttons below</h2>
-		<h1 id="score">0</h1>
-		<canvas width="330" height="330"></canvas>
+		<div class="nav-bar">
+			<a class="logo" href="index.html">
+				<img src="img/logo.png" alt="logo">
+			</a>
+			<h2><strong>The</strong> Snake</h2>
+			<a class="menu" href="index.html">
+				<img src="img/menu.png" alt="logo">
+			</a>
+		</div>
+		<div class="content">
+				<h1 id="score">0</h1>
+		
+				<canvas width="330" height="330"></canvas>
+		</div>
 		<div class="arrowsBoard">
 			<a id="btnUpId" class="btnUp">
 				<img src="img/btnUp.png" alt="btnUp">	
@@ -218,9 +306,9 @@
 			var ham = document.getElementById("myHam");
 			var ohNo = document.getElementById("myOhNo"); 
 
-				function playAudio(sound) { 
-  						sound.play(); 
-				} 
+			function playAudio(sound) { 
+  					sound.play(); 
+			} 
 
 			// loop
 			function gameLoop() {
@@ -282,7 +370,7 @@
 			 */
 			function drawStuff() {
 				// background
-				rectangle("#ffbf00", 0, 0, canvas.width, canvas.height);
+				rectangle("#BDBDBD", 0, 0, canvas.width, canvas.height);
 
 				// grid
 				drawGrid();
