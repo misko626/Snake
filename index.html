@@ -6,7 +6,7 @@
         <title>My first snake</title>
         <link rel="shortcut icon" href="img/icon.gif" type="image/x-icon">
 		<link rel="preconnect" href="https://fonts.gstatic.com">
-		<link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@1,300&family=Yanone+Kaffeesatz&display=swap" rel="stylesheet"> 
 		<style>
 			body {
 				background:white;
@@ -21,20 +21,24 @@
 			.arrowsBoard:before,
 			.nav-bar:before,
 			.nav-bar:after,
-			.arrowsBoard:after {
+			.arrowsBoard:after,
+			.footer:before,
+			.footer:after {
 				content: " ";
 				display: table;
 			}
 
 			.content:after,
 			.arrowsBoard:after,
-			.nav-bar:after {
+			.nav-bar:after,
+			.footer:after {
 				clear: both;
 			}
 
 			.content,
 			.arrowsBoard,
-			.nav-bar{
+			.nav-bar,
+			.footer{
 				*zoom: 1;
 			}
 			canvas {
@@ -49,7 +53,7 @@
 				font-size: 35px;
 				color: #8BC34A;
 				font-family: 'Yanone Kaffeesatz', sans-serif;
-				left: 50px;
+				left: 70px;
 				top: -15px;
 				
 			}
@@ -90,7 +94,7 @@
 				background-color: #212121;
 				height: 65px;
 				box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
-
+				z-index: 9999;
 			}
 			.logo img{
 				position: absolute;
@@ -109,12 +113,15 @@
 				position: relative;
 				background-color:#cddc39;
 				text-align: center;
-				box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
+				padding-bottom: 10px;
+				z-index: 9998;
+				box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.2), 0 10px 10px 0 rgba(0, 0, 0, 0.19);
 			}
 	
 			.arrowsBoard{
 				position: relative;
 				background-color: #fff;
+				height: 20vh;
 				/*display: flex;
 				justify-content: center;*/
 
@@ -161,6 +168,21 @@
 				width: 50px;
 				transform: rotate(90deg);
 			}
+			.footerDiv{
+				display: flex;
+				justify-content: center;
+			}
+			.footer{
+				text-align: center;
+				width: 80%;
+				border-top: 1px solid #BDBDBD;
+				top: 100px;
+				right: 10%;
+				font-family: 'Karla', sans-serif;
+				color: #BDBDBD;
+				
+			}
+
 			@media (max-width: 500px) {
 			.btnRight {
 				position: absolute;
@@ -189,7 +211,11 @@
 				top: 70px;
 				transition: 2s;
 			}
+			h2{
+				left: 50px;
 			}
+			}
+			
 			
 		</style>
 	</head>
@@ -222,6 +248,8 @@
 			<a id="btnLeftId" class="btnLeft">
 				<img src="img/btnUp.png" alt="btnLeft">	
 			<a>
+			
+			
 			<audio id="myHam">
   				
  				<source src="sounds/ham.mp3" type="audio/mpeg">
@@ -232,9 +260,14 @@
 				<source src="sounds/OhNo.mp3" type="audio/mpeg">
 				Your browser does not support the audio element.
 		   </audio>
-			
-		</div>
 
+		</div>
+		<div class="footerDiv">
+			<div class="footer">
+				<h3>Michal Popovič © 2021</h3>
+				
+			</div>
+		</div>
 		<script>
 			// listeners
 			document.addEventListener("keydown", keyPush);
